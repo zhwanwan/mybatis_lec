@@ -16,7 +16,6 @@ import java.util.List;
  * mybatis的入门案例
  */
 public class MybatisTest {
-
     /**
      * 入门案例
      * @param args

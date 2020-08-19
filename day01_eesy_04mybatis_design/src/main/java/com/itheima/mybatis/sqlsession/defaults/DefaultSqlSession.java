@@ -15,8 +15,8 @@ import java.sql.Connection;
  */
 public class DefaultSqlSession implements SqlSession {
 
-    private Configuration cfg;
-    private Connection connection;
+    private final Configuration cfg;
+    private final Connection connection;
 
     public DefaultSqlSession(Configuration cfg) {
         this.cfg = cfg;

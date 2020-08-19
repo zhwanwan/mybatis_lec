@@ -48,10 +48,7 @@ public class MybatisTest {
     public void testFindAll(){
         //5.执行查询所有方法
         List<User> users = userDao.findAll();
-        for(User user : users){
-            System.out.println(user);
-        }
-
+        users.forEach(System.out::println);
     }
     /**
      * 测试保存操作
@@ -66,7 +63,6 @@ public class MybatisTest {
         System.out.println("保存操作之前："+user);
         //5.执行保存方法
         userDao.saveUser(user);
-
         System.out.println("保存操作之后："+user);
     }
 

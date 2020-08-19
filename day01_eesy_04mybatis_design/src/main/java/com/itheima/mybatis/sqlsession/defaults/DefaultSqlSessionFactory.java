@@ -10,7 +10,7 @@ import com.itheima.mybatis.sqlsession.SqlSessionFactory;
  */
 public class DefaultSqlSessionFactory implements SqlSessionFactory {
 
-    private Configuration cfg;
+    private final Configuration cfg;
 
     public DefaultSqlSessionFactory(Configuration cfg) {
         this.cfg = cfg;

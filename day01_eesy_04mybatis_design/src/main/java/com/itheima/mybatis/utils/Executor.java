@@ -35,7 +35,6 @@ public class Executor {
             while (rs.next()) {
                 //实例化要封装的实体类对象
                 E obj = (E) domainClass.newInstance();
-
                 //取出结果集的元信息：ResultSetMetaData
                 ResultSetMetaData rsmd = rs.getMetaData();
                 //取出总列数

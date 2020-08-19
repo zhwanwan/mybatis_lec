@@ -14,8 +14,8 @@ import java.util.Map;
 public class MapperProxy implements InvocationHandler {
 
     //map的key是全限定类名+方法名
-    private Map<String, Mapper> mappers;
-    private Connection conn;
+    private final Map<String, Mapper> mappers;
+    private final Connection conn;
 
     public MapperProxy(Map<String, Mapper> mappers, Connection conn) {
         this.mappers = mappers;

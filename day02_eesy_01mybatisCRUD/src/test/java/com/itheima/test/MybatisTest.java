@@ -12,6 +12,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.InputStream;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -32,7 +33,7 @@ public class MybatisTest {
         in = Resources.getResourceAsStream("SqlMapConfig.xml");
         //2.获取SqlSessionFactory
         SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(in);
-        //3.获取SqlSession对象
+        //3.获取SqlSession对象--默认autoCommit为false,DML语句需要手动commit
         sqlSession = factory.openSession();
         //4.获取dao的代理对象
         userDao = sqlSession.getMapper(IUserDao.class);
@@ -64,14 +65,13 @@ public class MybatisTest {
     @Test
     public void testSave() {
         User user = new User();
-        user.setUserName("modify User property");
+        user.setUserName("冲刺zoom");
         user.setUserAddress("北京市顺义区");
         user.setUserSex("男");
         user.setUserBirthday(new Date());
         System.out.println("保存操作之前：" + user);
         //5.执行保存方法
         userDao.saveUser(user);
-
         System.out.println("保存操作之后：" + user);
     }
 
@@ -82,9 +82,9 @@ public class MybatisTest {
     public void testUpdate() {
         User user = new User();
         user.setUserId(50);
-        user.setUserName("mybastis update user");
-        user.setUserAddress("北京市顺义区");
-        user.setUserSex("女");
+        user.setUserName("王振");
+        user.setUserAddress("江苏苏州");
+        user.setUserSex("男");
         user.setUserBirthday(new Date());
 
         //5.执行保存方法
@@ -97,7 +97,7 @@ public class MybatisTest {
     @Test
     public void testDelete() {
         //5.执行删除方法
-        userDao.deleteUser(49);
+        userDao.deleteUser(53);
     }
 
     /**
@@ -106,7 +106,7 @@ public class MybatisTest {
     @Test
     public void testFindOne() {
         //5.执行查询一个方法
-        User user = userDao.findById(49);
+        User user = userDao.findById(50);
         System.out.println(user);
     }
 

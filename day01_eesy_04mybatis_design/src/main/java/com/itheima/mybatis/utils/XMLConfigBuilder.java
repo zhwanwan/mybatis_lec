@@ -34,7 +34,6 @@ public class XMLConfigBuilder {
         try {
             //定义封装连接信息的配置对象（mybatis的配置对象）
             Configuration cfg = new Configuration();
-
             //1.获取SAXReader对象
             SAXReader reader = new SAXReader();
             //2.根据字节输入流获取Document对象
@@ -124,7 +123,7 @@ public class XMLConfigBuilder {
         InputStream in = null;
         try {
             //定义返回值对象
-            Map<String, Mapper> mappers = new HashMap<String, Mapper>();
+            Map<String, Mapper> mappers = new HashMap<>();
             //1.根据路径获取字节输入流
             in = Resources.getResourceAsStream(mapperPath);
             //2.根据字节输入流获取Document对象
@@ -170,10 +169,9 @@ public class XMLConfigBuilder {
      */
     private static Map<String, Mapper> loadMapperAnnotation(String daoClassPath) throws Exception {
         //定义返回值对象
-        Map<String, Mapper> mappers = new HashMap<String, Mapper>();
-
+        Map<String, Mapper> mappers = new HashMap<>();
         //1.得到dao接口的字节码对象
-        Class daoClass = Class.forName(daoClassPath);
+        Class<?> daoClass = Class.forName(daoClassPath);
         //2.得到dao接口中的方法数组
         Method[] methods = daoClass.getMethods();
         //3.遍历Method数组
@@ -213,6 +211,4 @@ public class XMLConfigBuilder {
         }
         return mappers;
     }
-
-
 }

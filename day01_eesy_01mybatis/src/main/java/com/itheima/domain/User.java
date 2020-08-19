@@ -9,6 +9,7 @@ import java.util.Date;
  */
 public class User implements Serializable{
 
+    private static final long serialVersionUID = -1533904884809453907L;
     private Integer id;
     private String username;
     private Date birthday;

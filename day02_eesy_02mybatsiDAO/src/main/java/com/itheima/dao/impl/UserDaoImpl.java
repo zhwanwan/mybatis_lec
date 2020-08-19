@@ -32,7 +32,7 @@ public class UserDaoImpl implements IUserDao {
 
     @Override
     public void saveUser(User user) {
-        //1.根据factory获取SqlSession对象
+        //1.根据factory获取SqlSession对象--autoCommit为false
         SqlSession session = factory.openSession();
         //2.调用方法实现保存
         session.insert("com.itheima.dao.IUserDao.saveUser", user);

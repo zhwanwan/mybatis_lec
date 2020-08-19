@@ -13,7 +13,7 @@ public class Configuration {
     private String username;
     private String password;
 
-    private Map<String, Mapper> mappers = new HashMap<String, Mapper>();
+    private final Map<String, Mapper> mappers = new HashMap<>();
 
     public Map<String, Mapper> getMappers() {
         return mappers;
